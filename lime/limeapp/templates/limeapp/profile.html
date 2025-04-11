@@ -1,0 +1,9 @@
+{% extends 'limeapp/base.html' %}
+{% block content %}
+<nav>
+    <h3>This is the profile of {{ user.username }}</h3>
+</nav>
+<audio controls>
+    <source src="media/songs/song.mp3" type="audio/mpeg">
+  </audio>
+{% endblock content %}

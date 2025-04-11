@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lime</title>
+  </head>
+  <body>
+    <h1><a href="{% url 'limeapp-home' %}">lime</a></h1>
+    <nav>
+        <h3><a href="{% url 'limeapp-home' %}">Home</a></h3>
+        {% if user.is_authenticated %}
+            <h3><a href="{% url 'limeapp-profile' %}">{{ user.username }}</a></h3>
+            <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" style="
+                background: none;
+                border: none;
+                padding: 0;
+                color: inherit;
+                font: inherit;
+                cursor: pointer;
+                text-decoration: underline;
+                ">
+                Logout
+                </button>
+            </form>
+        {% else %}
+            <h3><a href="{% url 'login' %}">Log in</a></h3>
+            <h3><a href="{% url 'limeapp-register' %}">Register</a></h3>
+        {% endif %}
+    </nav>
+    {% block content %} {% endblock %}
+  </body>
+</html>
