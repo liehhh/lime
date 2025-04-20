@@ -1,0 +1,87 @@
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.left-header {
+    display: flex;
+    gap: 20px;
+    justify-content: left;
+    align-items: center;
+}
+
+.mid-header {
+    padding: 10px;
+}
+
+.right-header {
+    display: flex;
+    gap: 20px;
+    padding-left: 1000px;
+}
+
+.left-header {
+    background-color: aquamarine;
+}
+
+#lime {
+    padding: 20px;
+}
+
+header {
+    background-color: rgb(198, 255, 236);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ccfff0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  body {
+    margin: 0;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  body {
+    min-height: 100vh !important; 
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* adjust to fit your design */
+    background-color: #ccfff0; /* your color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* stays above other elements */
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
