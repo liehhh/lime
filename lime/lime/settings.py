@@ -56,7 +56,7 @@ ROOT_URLCONF = 'lime.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'limeapp/templates'],
+        'DIRS': [BASE_DIR / 'limeapp' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,7 +118,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # or os.path.join(BASE_DIR, 'static') for older versions
+    BASE_DIR / "limeapp/static",  # or os.path.join(BASE_DIR, 'static') for older versions
 ]
 
 # Default primary key field type
@@ -130,11 +130,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/accounts/login/'
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'bnachkebia27@gmail.com'
 
+AUTH_USER_MODEL = 'limeapp.LimeUser'
 
 AUTHENTICATION_BACKENDS = [
     'limeapp.backends.UsernameOrEmailBackend',
