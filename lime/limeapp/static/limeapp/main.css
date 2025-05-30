@@ -138,7 +138,7 @@ body {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.603);
 }
 
-button {
+.registration button {
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   border-color: white;
@@ -171,3 +171,96 @@ button:hover {
   color: yellowgreen;
   text-shadow: 0 0 4px greenyellow;
 }
+
+/* loading screen (before main) */
+
+.loading-screen {
+  display: flex;
+}
+
+.loading-screen #pic1 {
+  padding-top: 20px;
+  transform: translateX(-50px);
+  scale: 140%;
+}
+
+.loading-screen .For-Events {
+  transform: translateX(-330px) translateY(105px);
+}
+
+.For-Events h1 {
+  max-width: 100px;
+  font-size: 2.5em;
+}
+
+.For-Events p {
+  font-weight: bolder;
+}
+
+.For-Events button {
+  padding: 15px 55px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.For-Events button:hover {
+  color: yellowgreen;
+  text-shadow: 0 0 4px greenyellow;
+}
+
+.loading-screen .For-Discover {
+  transform: translateX(-490px) translateY(375px);
+}
+
+.For-Discover p {
+  font-weight: bolder;
+}
+
+.For-Discover h1 {
+  width: 500px;
+  font-size: 2.5em;
+}
+
+.For-Discover button {
+  padding: 15px 55px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.For-Discover button:hover {
+  color: yellowgreen;
+  text-shadow: 0 0 4px greenyellow;
+}
+
+.Featured-Event {
+  transform: translateX(-289px);
+}
+
+.Featured-Event img {
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.Event-imgs {
+  position: absolute;
+  width: 250px;
+  bottom: -200px;
+  left: -100px;
+  display: flex;
+  gap: 40px;
+}
+
+.Event-imgs img {
+  width: 200px;
+}
+
+.Event-imgs p {
+  font-weight: bold;
+}
+
+
+

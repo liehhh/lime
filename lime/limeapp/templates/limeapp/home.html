@@ -1,4 +1,67 @@
 {% extends 'limeapp/base.html' %}
 {% load static %}
 {% block content %}
+<div class="loading-screen">
+    <img id="pic1" src="{% static 'limeapp/pictures/bubbles.png' %}">
+    <div class="For-Events">
+        <h1>
+            Upcoming Events!
+        </h1>
+        <p>
+            Upcoming Music events in Georgia.
+        </p>
+        <button>
+            Explore
+        </button>
+    </div>
+    <div class="For-Discover">
+        <h1>
+            Discover rising Music
+        </h1>
+        <p>
+            Find Artist you might be interested in.
+        </p>
+        <button>
+            Scroll
+        </button>
+    </div>
+    <div class="Featured-Event">
+        <img src="{% static 'limeapp/pictures/featured events.jpg' %}" >
+        <div class="Featured-Event-imgs">
+                <div class="Event-imgs">
+                    <a href="somewhere gng">
+                        <div class="Event-imgs-1">
+                            <img src="{% static 'limeapp/pictures/oknotok.jpg' %}">
+                            <p>
+                                oknotok cassette - motion picture soundtrack
+                            </p>
+                        </div>
+                    </a>
+                    <a href="somewhere gng">
+                        <div class="Event-imgs-2">
+                            <img src="{% static 'limeapp/pictures/inrainbows.png' %}">
+                            <p>
+                                oknotok cassette - motion picture soundtrack
+                            </p>
+                        </div>
+                    </a>
+                    <a href="somewhere gng">
+                        <div class="Event-imgs-ender">
+                            <h1>
+                                .
+                            </h1>
+                            <h1>
+                                .
+                            </h1>
+                            <h1>
+                                .
+                            </h1>
+                        </div>
+                    </a>
+                </div>
+        </div>
+    </div>
+</div>  
+
+
 {% endblock content %}
