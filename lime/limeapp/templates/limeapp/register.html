@@ -3,17 +3,19 @@
 {% block content %}
 <h2>Create your Account</h2>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-</form>
+<div class="registration">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
 
-<p>Already have an account? <a href="{% url 'login' %}"> Log in</p>
+    <p>Already have an account? <a href="{% url 'login' %}"> Log in</a></p>
 
-{% if messages %}
-    {% for message in messages %}
-        <p style="color:green">{{ message }}</p>
-    {% endfor %}
-{% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color:green">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+</div>
 {% endblock content %}
