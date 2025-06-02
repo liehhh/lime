@@ -1,0 +1,21 @@
+<h2>Log in your Account</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Login</button>
+</form>
+
+<p>Don't have an account? <a href="{% url 'register' %}">Register</p>
+<p><a href="{% url 'password_reset' %}">Forgot Password?</p>
+
+
+{% if messages %}
+    {% for message in messages %}
+        <p style="color: green;">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+  
+
+{% if form.errors %}
+    <p style="color: red">Invalid Username or Password</p>
+{% endif %}

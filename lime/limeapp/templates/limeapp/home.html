@@ -1,4 +1,8 @@
 {% extends 'limeapp/base.html' %}
 {% load static %}
 {% block content %}
+    {% for song in songs %}
+        <p><a href="#" class="play-song" data-src="{{ song.audio_file.url }}"
+         data-title="{{ song.title }}" data-artist="{{ song.artist }}">{{ song.artist }} - {{ song.title }}</a></p>
+    {% endfor %}     
 {% endblock content %}

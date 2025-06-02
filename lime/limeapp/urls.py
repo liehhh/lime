@@ -10,7 +10,6 @@ from . import views
 urlpatterns = [
     path('', views.home, name='limeapp-home'),
     path('profile/', views.profile, name='limeapp-profile'),
-    path('songs/', views.song_list_view, name='limeapp-song'),
 
     path('register/', RegisterView.as_view(), name='register'),
 

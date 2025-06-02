@@ -4,7 +4,15 @@
 
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <!-- Texboxebistvis classnameebi forms.py-shi ari gawerili  -->
+    <div class="username-group">
+        {{ form.username }}
+    </div>
+
+    <div class="password-group">
+        {{ form.password }}
+    </div>
+
     <button type="submit">Login</button>
 </form>
 
