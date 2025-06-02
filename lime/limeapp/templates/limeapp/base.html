@@ -14,6 +14,7 @@
       <ul>
         <div class="header">
           <div class="left-header">
+<<<<<<< HEAD
             <h1 id="lime"><a href="{% url 'limeapp-home' %}">LIME</a></h1>
             <img src="{% static 'limeapp/pictures/lime.png' %}">
             <h1><a href="{% url 'limeapp-home' %}"  hx-get="/" hx-target="#main-content" hx-swap="innerHTML">Home</a></h3>
@@ -37,24 +38,99 @@
                 </div>
               {% endif %}
             </div>
+=======
+            <h1 id="lime"><a href="{% url 'limeapp-home' %}" 
+              hx-get="{% url 'limeapp-home' %}"
+              hx-target="#content"
+              hx-push-url="true">LIME</a></h1>
+          </div>
+          <div class="mid-header">
+            <h1><a href="{% url 'limeapp-home' %}"
+                          hx-get="{% url 'limeapp-home' %}"
+                          hx-target="#content"
+                          hx-push-url="true">Home</a></h3>
+          </div>
+          <div class="right-header">
+          {% if user.is_authenticated %}
+              <h3><a href="{% url 'limeapp-profile' %}"
+                              hx-get="{% url 'limeapp-profile' %}"
+                              hx-target="#content"
+                              hx-push-url="true">{{ user.username }}</a></h3>
+              <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                  {% csrf_token %}
+                  <button type="submit" style="
+                  background: none;
+                  border: none;
+                  padding: 0;
+                  color: inherit;
+                  font: inherit;
+                  cursor: pointer;
+                  text-decoration: underline;
+                  ">
+                  Logout
+                  </button>
+              </form>
+          {% else %}
+              <h1><a href="{% url 'login' %}" id="loginBtn"
+                              hx-get="{% url 'login' %}"
+                              hx-target="#content"
+                              hx-push-url="true">Log in</a></h1>
+              <h1><a href="{% url 'register' %}" id="registerBtn"
+                              hx-get="{% url 'register' %}"
+                              hx-target="#content"
+                              hx-push-url="true">Register</a></h1>
+          {% endif %}
+>>>>>>> 54bdeba1b85f88ed6aa9f5e8395b498f93d90d8c
           </div>
         </div>
       </ul>
     </nav>
   </header>
   <body>
-    {% block content %} {% endblock %}
-  </body>
-
-  <footer>
-
-    <div id="music-bar" style="position: fixed; bottom: 0; width: 100%; z-index: 999; background: #eee;">
-      <audio id="global-audio" controls autoplay loop>
-        <source src="\media\songs\Radiohead_-_Motion_Picture_Soundtrack_OKNOTOK_cassette.mp3" type="audio/mpeg">
-      </audio>
-      <h1>title: {{ songs.title }}</h1>
+    <div id="content" hx-target="this" hx-swap="innerHTML" hx-push-url="true">
+      {% block content %} {% endblock %}
     </div>
+  </body>
+  <footer>
+    <p id="current-artist-display"></p>
+    <p id="current-title-display"></p>  <!-- ARTIST AND TITLE TAG, PUT ARTIST ABOVE TITLE,  -->
+      <div id="player-bar">
+          <audio id="audio-player" controls >
+            <source src="" type="audio/mpeg">
+          </audio>    
+      </div>
   
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const audioPlayer = document.getElementById('audio-player');
+        const source = audioPlayer.querySelector('source');
+        const currentArtistDisplay = document.getElementById('current-artist-display');
+        const currentTitleDisplay = document.getElementById('current-title-display');
+
+        // We listen for clicks on any element with the class 'play-song' anywhere in the document
+        document.body.addEventListener('click', function (event) {
+          const target = event.target;
+
+          if (target.classList.contains('play-song')) {
+            event.preventDefault();
+            const audioSrc = target.dataset.src;
+            const artist = target.dataset.artist;
+            const title = target.dataset.title;
+
+            if (audioSrc) {
+              source.src = audioSrc;
+              audioPlayer.load();
+              audioPlayer.play();
+            }
+
+            currentArtistDisplay.textContent = `${artist}`;
+            currentTitleDisplay.textContent = `${title}`;
+          }
+        });
+      });
+  
+    </script>
 
   </footer>
 </html>

@@ -16,7 +16,8 @@ class LimeUser(AbstractUser):
 
 
 class Song(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=75)
+    artist = models.CharField(max_length=50)
     description = models.TextField()
     audio_file = models.FileField(upload_to='songs/', validators=[FileExtensionValidator(allowed_extensions=['mp3','wav'])], default='song.mp3')
 

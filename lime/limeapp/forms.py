@@ -6,7 +6,38 @@ from .models import Song, LimeUser
 
 
 class LimeUserCreationForm(UserCreationForm):
-    email = forms.EmailField(required=True)
+    username = forms.CharField(
+        label='',
+        widget=forms.TextInput(attrs={
+            'class': 'register-username',
+            'placeholder': 'Username'
+        })
+    )
+
+    email = forms.EmailField(
+        label='',
+        required=True,
+        widget=forms.EmailInput(attrs={
+            'class': 'register-email',
+            'placeholder': 'Email'
+        })
+    )
+
+    password1 = forms.CharField(
+        label='',
+        widget=forms.PasswordInput(attrs={
+            'class': 'register-password1',
+            'placeholder': 'Password'
+        })
+    )
+
+    password2 = forms.CharField(
+        label='',
+        widget=forms.PasswordInput(attrs={
+            'class': 'register-password2',
+            'placeholder': 'Repeat Password'
+        })
+    )
 
     class Meta:
         model = LimeUser
@@ -14,7 +45,21 @@ class LimeUserCreationForm(UserCreationForm):
 
 
 class LimeLoginForm(AuthenticationForm):
-    username = forms.CharField(label="Username or Email")
+    username = forms.CharField(
+        label="",
+        widget=forms.TextInput(attrs={
+            'class': 'login-username',
+            'placeholder': 'Username / Email'
+        })
+        )
+    
+    password = forms.CharField(
+        label='',
+        widget=forms.PasswordInput(attrs={
+            'class': 'login-password',
+            'placeholder': 'Password'
+        })
+    )
 
     def clean_username(self):
         username_or_email = self.cleaned_data['username']

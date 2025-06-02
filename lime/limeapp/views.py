@@ -7,17 +7,8 @@ from django.contrib import messages
 
 
 def home(request):
-    return render(request, 'limeapp/home.html', {})
-
-def song_list_view(request):
-    is_htmx = request.headers.get("HX-Request") == "true"
-
-    songs = Song.objects.first()
-
-    if is_htmx:
-        return render(request, 'limeapp/home.html', {'songs': songs})
-    return render(request, 'limeapp/base.html', {'content_template': 'limeapp/home.html',
-                                                 'songs': songs})
+    songs = Song.objects.all()[:10]
+    return render(request, 'limeapp/home.html', {'songs': songs})
 
 
 class RegisterView(CreateView):
@@ -31,9 +22,8 @@ class LoginView(LimeLoginForm):
     template_name = 'limeapp/login.html'
     authentication_form = LimeLoginForm
 
-
 def login(request):
-    return render(request, 'registration\login.html', {})
+    return render(request, 'registration/login.html', {})
 
 def profile(request):
     return render(request, 'limeapp/profile.html', {})

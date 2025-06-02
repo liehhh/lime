@@ -3,11 +3,27 @@
 <div class="registration">
     <h2>Log in your Account</h2>
 
+<<<<<<< HEAD
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Login</button>
     </form>
+=======
+<form method="post">
+    {% csrf_token %}
+    <!-- Texboxebistvis classnameebi forms.py-shi ari gawerili  -->
+    <div class="username-group">
+        {{ form.username }}
+    </div>
+
+    <div class="password-group">
+        {{ form.password }}
+    </div>
+
+    <button type="submit">Login</button>
+</form>
+>>>>>>> 54bdeba1b85f88ed6aa9f5e8395b498f93d90d8c
 
     <p>Don't have an account? <a href="{% url 'register' %}">Register</p>
     <p><a href="{% url 'password_reset' %}">Forgot Password?</p>

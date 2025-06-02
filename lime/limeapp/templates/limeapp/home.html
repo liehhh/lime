@@ -1,6 +1,7 @@
 {% extends 'limeapp/base.html' %}
 {% load static %}
 {% block content %}
+<<<<<<< HEAD
 <div class="loading-screen">
     <img id="pic1" src="{% static 'limeapp/pictures/bubbles.png' %}">
     <div class="For-Events">
@@ -64,4 +65,10 @@
 </div>  
 
 
+=======
+    {% for song in songs %}
+        <p><a href="#" class="play-song" data-src="{{ song.audio_file.url }}"
+         data-title="{{ song.title }}" data-artist="{{ song.artist }}">{{ song.artist }} - {{ song.title }}</a></p>
+    {% endfor %}     
+>>>>>>> 54bdeba1b85f88ed6aa9f5e8395b498f93d90d8c
 {% endblock content %}
